@@ -1,0 +1,2 @@
+# Build artifact: rebuilt from the sources before each store upload (see store/LISTING.md).
+store/*.zip

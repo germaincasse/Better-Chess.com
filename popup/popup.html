@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Better Chess.com Free</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="../icons/icon48.png" alt="" width="24" height="24">
+    <h1>Better Chess.com Free</h1>
+    <nav>
+      <button class="tab active" data-tab="stats" data-i18n="popup.tab.stats"></button>
+      <button class="tab" data-tab="settings" data-i18n="popup.tab.settings"></button>
+    </nav>
+  </header>
+
+  <main id="stats" class="pane">
+    <label class="range">
+      <span data-i18n="popup.rangeLabel"></span>
+      <select id="range">
+        <option value="10" data-i18n="popup.rangeLast" data-i18n-n="10"></option>
+        <option value="20" data-i18n="popup.rangeLast" data-i18n-n="20" selected></option>
+        <option value="50" data-i18n="popup.rangeLast" data-i18n-n="50"></option>
+        <option value="300" data-i18n="popup.rangeAll"></option>
+      </select>
+    </label>
+    <div id="empty" class="empty" data-i18n="popup.empty" hidden></div>
+    <div id="summary" hidden>
+      <div id="verdict" class="verdict"></div>
+      <table class="phases">
+        <thead>
+          <tr>
+            <th></th>
+            <th data-i18n-title="cls.blunder">??</th>
+            <th data-i18n-title="cls.mistake">?</th>
+            <th data-i18n-title="cls.inaccuracy">?!</th>
+            <th data-i18n="popup.col.perSerious" data-i18n-title="popup.col.perSeriousTitle"></th>
+            <th data-i18n="popup.col.accuracy"></th>
+          </tr>
+        </thead>
+        <tbody id="phase-rows"></tbody>
+      </table>
+      <h2 data-i18n="popup.recent"></h2>
+      <ul id="games" class="games"></ul>
+      <button id="clear" class="link" data-i18n="popup.clear"></button>
+    </div>
+  </main>
+
+  <main id="settings" class="pane" hidden>
+    <label class="field">
+      <span data-i18n="settings.language"></span>
+      <select id="language"></select>
+    </label>
+    <label class="field">
+      <span data-i18n="settings.username"></span>
+      <input id="username" type="text" data-i18n-placeholder="settings.usernamePlaceholder" spellcheck="false" autocomplete="off">
+    </label>
+    <label class="check"><input id="showRatings" type="checkbox"> <span data-i18n="settings.showRatings"></span></label>
+    <label class="check sub"><input id="showPeak" type="checkbox"> <span data-i18n="settings.showPeak"></span></label>
+    <label class="check"><input id="autoAnalyze" type="checkbox"> <span data-i18n="settings.autoAnalyze"></span></label>
+    <label class="check"><input id="showInaccuracies" type="checkbox"> <span data-i18n="settings.showInacc"></span></label>
+    <label class="check"><input id="syncBoard" type="checkbox"> <span data-i18n="settings.syncBoard"></span></label>
+
+    <label class="field">
+      <span data-i18n="settings.depth"></span>
+      <select id="depth">
+        <option value="10" data-i18n="depth.10"></option>
+        <option value="12" data-i18n="depth.12"></option>
+        <option value="14" data-i18n="depth.14"></option>
+        <option value="16" data-i18n="depth.16"></option>
+        <option value="18" data-i18n="depth.18"></option>
+      </select>
+    </label>
+    <label class="field">
+      <span data-i18n="settings.engines"></span>
+      <select id="engines">
+        <option value="0" data-i18n="settings.enginesAuto"></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+      </select>
+    </label>
+    <div class="row2">
+      <label class="field">
+        <span data-i18n="settings.openingMoves"></span>
+        <input id="openingMoves" type="number" min="4" max="20">
+      </label>
+      <label class="field">
+        <span data-i18n="settings.endgamePieces"></span>
+        <input id="endgamePieces" type="number" min="2" max="12">
+      </label>
+    </div>
+    <p class="hint" data-i18n="settings.hintEndgame"></p>
+    <p class="hint" data-i18n="settings.hintFinished"></p>
+  </main>
+
+  <footer>
+    <a class="kofi" href="https://ko-fi.com/germaincasse" target="_blank" rel="noopener"><svg class="kofi-cup" viewBox="0 0 32 24" aria-hidden="true"><path fill="#fff" d="M2 3.5C2 2.7 2.7 2 3.5 2h19c.8 0 1.5.7 1.5 1.5V5h1.8C28.6 5 31 7.3 31 10.2c0 3-2.4 5.3-5.3 5.3H24C23.3 19.8 19.9 22 16 22H9c-3.9 0-7-3.1-7-7V3.5Zm22 4.5v4.5h1.7c1.2 0 2.3-1 2.3-2.3 0-1.2-1-2.2-2.3-2.2H24Z"/><path fill="#FF5E5B" d="M13 17.2l-4.3-4c-1.3-1.2-1.4-3.2-.2-4.4 1.1-1.1 3-1 4 .2l.5.5.5-.5c1-1.2 2.9-1.3 4-.2 1.2 1.2 1.1 3.2-.2 4.4l-4.3 4Z"/></svg><span data-i18n="kofi"></span></a>
+  </footer>
+
+  <script src="../lib/i18n.js"></script>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

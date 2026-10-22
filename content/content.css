@@ -1,0 +1,53 @@
+/* Opponent ratings, inserted in chess.com's player tagline. */
+.cce-ratings {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+  /* On a narrow board, the badge gives way before the username does. */
+  flex-shrink: 10;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+  color: inherit;
+}
+
+.cce-ratings[hidden] {
+  display: none !important;
+}
+
+.cce-ratings.cce-loading {
+  opacity: 0.45;
+}
+
+.cce-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.cce-rating svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+}
+
+.cce-rating i {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11.5px;
+  opacity: 0.6;
+}
+
+.cce-rating.cce-none {
+  opacity: 0.4;
+}
+
+/* With a badge in the row, the username keeps its full width; the badge gives way instead. */
+.cc-user-block-component:has(> .cce-ratings) > [data-test-element="user-tagline-username"] {
+  flex-shrink: 0;
+}

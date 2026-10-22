@@ -1,0 +1,8 @@
+{
+  "extName": {
+    "message": "Better Chess.com Free"
+  },
+  "extDescription": {
+    "message": "Both players' rapid, blitz and bullet ratings with peaks, and a Stockfish review of your errors by game phase for chess.com."
+  }
+}

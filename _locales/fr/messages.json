@@ -1,0 +1,8 @@
+{
+  "extName": {
+    "message": "Better Chess.com Free"
+  },
+  "extDescription": {
+    "message": "Elo rapide, blitz et bullet des joueurs avec leur pic, et analyse Stockfish de tes erreurs par phase de jeu sur chess.com."
+  }
+}

@@ -1,0 +1,364 @@
+:root {
+  --bg: #262421;
+  --bg-2: #312e2b;
+  --bg-3: #3c3a37;
+  --text: #fff;
+  --text-2: #d4d3d2;
+  --muted: #9e9c9a;
+  --green: #81b64c;
+  --red: #fa412d;
+  --orange: #ffa459;
+  --yellow: #f7c631;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 420px;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #1f1e1c;
+}
+
+h1 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+nav {
+  margin-left: auto;
+  display: flex;
+  gap: 2px;
+}
+
+.tab {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab.active {
+  background: var(--bg-3);
+  color: var(--text);
+}
+
+.pane {
+  padding: 12px;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+select,
+input[type="text"],
+input[type="number"] {
+  background: var(--bg-2);
+  color: var(--text);
+  border: 1px solid var(--bg-3);
+  border-radius: 6px;
+  font: inherit;
+  padding: 5px 7px;
+}
+
+.range select {
+  padding: 2px 4px;
+}
+
+.empty {
+  color: var(--text-2);
+  background: var(--bg-2);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.verdict {
+  border-left: 4px solid var(--red);
+  background: rgba(250, 65, 45, 0.12);
+  border-radius: 8px;
+  padding: 9px 11px;
+  margin-bottom: 12px;
+}
+
+.verdict.good {
+  border-color: var(--green);
+  background: rgba(129, 182, 76, 0.12);
+}
+
+.verdict b {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+table.phases {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.phases th,
+.phases td {
+  padding: 6px 4px;
+  text-align: right;
+}
+
+.phases th {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.phases th:first-child,
+.phases td:first-child {
+  text-align: left;
+}
+
+.phases tbody tr {
+  border-top: 1px solid var(--bg-3);
+}
+
+.phases tr.weak td:first-child {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.phases td.b {
+  color: var(--red);
+}
+
+.phases td.m {
+  color: var(--orange);
+}
+
+.phases td.i {
+  color: var(--yellow);
+}
+
+.phases td.zero {
+  opacity: 0.4;
+}
+
+.phases .sub {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+h2 {
+  font-size: 13px;
+  margin: 0 0 6px;
+}
+
+.games {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.games li {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 4px;
+  border-top: 1px solid var(--bg-3);
+}
+
+.games a {
+  color: var(--text);
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.games a:hover {
+  text-decoration: underline;
+}
+
+.games .main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.games .opening {
+  color: var(--muted);
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eco {
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.games .date {
+  color: var(--muted);
+  font-size: 11.5px;
+  margin-left: 4px;
+}
+
+.res {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.res.win {
+  background: var(--green);
+}
+
+.res.loss {
+  background: var(--red);
+}
+
+.res.draw {
+  background: var(--muted);
+}
+
+.ph {
+  display: flex;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.ph span.bad {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.ph span.none {
+  opacity: 0.35;
+}
+
+.link {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: var(--red);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.field span {
+  color: var(--text-2);
+  font-weight: 600;
+}
+
+.check {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 9px;
+  cursor: pointer;
+}
+
+.check input {
+  margin: 2px 0 0;
+  accent-color: var(--green);
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 0 8px;
+}
+
+.check.sub {
+  margin-left: 22px;
+}
+
+footer {
+  padding: 4px 12px 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.kofi {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 999px;
+  background: #ff5e5b;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 3px 0 #c9403e;
+  transition: transform 0.12s, background 0.12s;
+}
+
+.kofi:hover {
+  background: #ff716e;
+  transform: translateY(-1px);
+}
+
+.kofi-cup {
+  width: 26px;
+  height: 20px;
+}
+
+/* The name is long: it gives way (ellipsis) before the tabs do. */
+header h1 {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+header img,
+nav {
+  flex-shrink: 0;
+}
